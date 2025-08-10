@@ -1,0 +1,96 @@
+/* Import normalize */
+
+@import "./normalize.css";
+
+/* Global variables */
+
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-dark: #003049;
+  --color-primary: #a9def9;
+  --color-gray-medium: #555555;
+  --color-gray-light: #f4f4f4;
+  --color-green-whatsapp: #25d366;
+
+  /* Font Family */
+  --font-family-base: "Inter", sans-serif;
+
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  /* Font Sizes */
+  --fs-sm: clamp(0.875rem, 0.85rem + 0.3vw, 1rem); /* 14 → 16px */
+  --fs-md: clamp(0.9375rem, 0.9rem + 0.4vw, 1.125rem); /* 15 → 18px */
+  --fs-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16 → 18px */
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem); /* 20 → 28px */
+  --fs-xxl: clamp(1.5rem, 1.2rem + 2vw, 2.5rem); /* 24 → 40px */
+
+  /* Spacing */
+  --space-8: clamp(0.5rem, 0.45rem + 0.2vw, 0.75rem); /* 8 → 12px */
+  --space-12: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 12 → 16px */
+  --space-16: clamp(1rem, 0.95rem + 0.3vw, 1.5rem); /* 16 → 24px */
+  --space-24: clamp(1.5rem, 1.4rem + 0.4vw, 2rem); /* 24 → 32px */
+  --space-32: clamp(2rem, 1.9rem + 0.5vw, 3rem); /* 32 → 48px */
+
+  /* Icon & Logo Sizes */
+  --logo-height: clamp(1.25rem, 1.2rem + 0.3vw, 1.75rem); /* 20 → 28px */
+  --icon-size: clamp(1.5rem, 1.4rem + 0.3vw, 1.75rem); /* 24 → 28px */
+
+  /* Layout */
+  --max-content-width: 70rem; /* 1120px fixed */
+}
+
+/* Base styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--fs-lg);
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
