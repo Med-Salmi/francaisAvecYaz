@@ -1,0 +1,18 @@
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16-24) var(--space-16-32);
+}
+
+.header__logo-image {
+  height: var(--fs-xxl);
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__menu-toggle--close {
+  display: none;
+}

@@ -1,3 +1,5 @@
+import "./header.css";
+
 export default function createHeader() {
   return `
     <header class="header">
@@ -47,7 +49,6 @@ export default function createHeader() {
           class="header__menu-toggle header__menu-toggle--close" 
           aria-label="Fermer le menu"
           type="button"
-          hidden
         >
           <i class="fa-solid fa-xmark"></i>
         </button>
