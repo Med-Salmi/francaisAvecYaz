@@ -12,6 +12,7 @@
   --color-gray-medium: #555555;
   --color-gray-light: #f4f4f4;
   --color-green-whatsapp: #25d366;
+  --color-mobile-menu: #f8f9fa;
 
   /* Font Family */
   --font-family-base: "Inter", sans-serif;
@@ -30,16 +31,30 @@
   --fs-xxl: clamp(1.5rem, 1.2rem + 2vw, 2.5rem); /* 24 → 40px */
 
   /* Spacing */
-  --space-8-12: clamp(0.5rem, 0.45rem + 0.2vw, 0.75rem); /* 8 → 12px */
-  --space-12-16: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 12 → 16px */
-  --space-16-24: clamp(1rem, 0.95rem + 0.3vw, 1.5rem); /* 16 → 24px */
-  --space-16-32: clamp(1rem, -10.818rem + 50.424vw, 27rem);
-  --space-24-32: clamp(1.5rem, 1.4rem + 0.4vw, 2rem); /* 24 → 32px */
-  --space-32-48: clamp(2rem, 1.9rem + 0.5vw, 3rem); /* 32 → 48px */
+
+  /* headline-subheadline, title-paragraph */
+  --space-8-12: clamp(0.5rem, 0.386rem + 0.485vw, 0.75rem);
+  /* buttons, image-title, paragraph-button */
+  --space-12-16: clamp(0.75rem, 0.636rem + 0.485vw, 1rem);
+  /* header-padding-top-bottom, nav-links, subheadline-buttons, footer-elements-gap */
+  --space-16-24: clamp(1rem, 0.773rem + 0.97vw, 1.5rem);
+  /* header-padding-sides, hero-padding-sides, fiches-padding-sides, subheadline-cards, 
+     between-cards, footer-padding-sides */
+  --space-16-32: clamp(1rem, 0.545rem + 1.939vw, 2rem);
+  /* hero-padding-top-bottom, fiches-padding-top-bottom, footer-padding-top-bottom */
+  --space-24: 1.5rem;
 
   /* Icon & Logo Sizes */
-  --logo-height: clamp(1.25rem, 1.2rem + 0.3vw, 1.75rem); /* 20 → 28px */
+  --logo-height: clamp(3.75rem, 3.182rem + 2.424vw, 5rem); /* 60 → 80px */
   --icon-size: clamp(1.5rem, 1.4rem + 0.3vw, 1.75rem); /* 24 → 28px */
+
+  /* border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* mobile menu toggle icon size */
+  --menu-toggle-icon: 24px;
 
   /* Layout */
   --max-content-width: 70rem; /* 1120px fixed */
