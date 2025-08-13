@@ -1,5 +1,5 @@
 import "../../styles/common.css";
 
-import createHeader from "../../components/header/header.js";
+import { initCommon } from "../../js/common";
 
-document.body.insertAdjacentHTML("afterbegin", createHeader());
+initCommon();

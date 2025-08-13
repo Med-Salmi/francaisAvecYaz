@@ -1,7 +1,8 @@
 import "./header.css";
 
-export default function createHeader() {
-  return `
+export function initHeader() {
+  //Create header html
+  const headerHTML = `
     <header class="header">
       <div class="header__container">
         
@@ -56,4 +57,23 @@ export default function createHeader() {
       </div>
     </header>
   `;
+
+  document.body.insertAdjacentHTML("afterbegin", headerHTML);
+
+  // Mobile menu logic
+  const navMenu = document.querySelector(".header__nav");
+  const hamburger = document.querySelector(".header__menu-toggle--open");
+  const closeIcon = document.querySelector(".header__menu-toggle--close");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.style.display = "block";
+    hamburger.style.display = "none";
+    closeIcon.style.display = "block";
+  });
+
+   closeIcon.addEventListener("click", () => {
+    navMenu.style.display = "none";
+    hamburger.style.display = "block";
+    closeIcon.style.display = "none";
+  });
 }
