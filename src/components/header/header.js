@@ -66,14 +66,14 @@ export function initHeader() {
   const closeIcon = document.querySelector(".header__menu-toggle--close");
 
   hamburger.addEventListener("click", () => {
-    navMenu.style.display = "block";
+    navMenu.classList.add("is-visible");
     hamburger.style.display = "none";
-    closeIcon.style.display = "block";
+    closeIcon.style.display = "inline-block";
   });
 
-   closeIcon.addEventListener("click", () => {
-    navMenu.style.display = "none";
-    hamburger.style.display = "block";
+  closeIcon.addEventListener("click", () => {
+    navMenu.classList.remove("is-visible");
+    hamburger.style.display = "inline-block";
     closeIcon.style.display = "none";
   });
 }
