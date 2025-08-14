@@ -9,8 +9,8 @@ export function initHeader() {
         <!-- Logo -->
         <a href="/" class="header__logo">
           <img 
-            src="/src/assets/logo.png" 
-            alt="Nom du site" 
+            src="/logo.png" 
+            alt="Francais avec yaz" 
             class="header__logo-image"
           />
         </a>
