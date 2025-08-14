@@ -2,7 +2,7 @@ import "./hero.css";
 
 export function initHero() {
   const heroHTML = `
-    <section class="hero" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
+    <section class="hero content-width" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
       <div class="hero__container">
         <h1 class="hero__title" id="hero-title">
           Des fiches prêtes à l'emploi pour vos cours de français
