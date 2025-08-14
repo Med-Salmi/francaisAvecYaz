@@ -65,12 +65,45 @@ export function initHeader() {
   const hamburger = document.querySelector(".header__menu-toggle--open");
   const closeIcon = document.querySelector(".header__menu-toggle--close");
 
-  function toggleMenu(isOpen) {
-    navMenu.classList.toggle("is-visible", isOpen);
-    hamburger.style.display = isOpen ? "none" : "inline-block";
-    closeIcon.style.display = isOpen ? "inline-block" : "none";
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.add("is-visible");
+    hamburger.style.display = "none";
+    closeIcon.style.display = "inline-block";
+  });
+
+  closeIcon.addEventListener("click", () => {
+    navMenu.classList.remove("is-visible");
+    hamburger.style.display = "inline-block";
+    closeIcon.style.display = "none";
+  });
+
+  // Reset menu on resize
+  let resizeTimeout;
+
+  function handleResize() {
+    clearTimeout(resizeTimeout);
+
+    // Disable transitions during resizing
+    navMenu.style.transition = "none";
+
+    if (window.innerWidth >= 768) {
+      // Desktop: reset state
+      navMenu.classList.remove("is-visible");
+      hamburger.style.display = "none";
+      closeIcon.style.display = "none";
+    } else {
+      // Mobile: ensure menu closed by default
+      if (!navMenu.classList.contains("is-visible")) {
+        hamburger.style.display = "inline-block";
+        closeIcon.style.display = "none";
+      }
+    }
+
+    // Re-enable transitions after resize ends
+    resizeTimeout = setTimeout(() => {
+      navMenu.style.transition = "";
+    }, 150); // Wait 150ms after resizing stops
   }
 
-  hamburger.addEventListener("click", () => toggleMenu(true));
-  closeIcon.addEventListener("click", () => toggleMenu(false));
+  window.addEventListener("resize", handleResize);
 }

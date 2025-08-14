@@ -56,7 +56,8 @@
 }
 
 @media (min-width: 768px) {
-  .header__menu-toggle {
+  .header__menu-toggle--open,
+  .header__menu-toggle--close {
     display: none;
   }
   .header__nav {
