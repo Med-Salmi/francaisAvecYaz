@@ -65,15 +65,12 @@ export function initHeader() {
   const hamburger = document.querySelector(".header__menu-toggle--open");
   const closeIcon = document.querySelector(".header__menu-toggle--close");
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.add("is-visible");
-    hamburger.style.display = "none";
-    closeIcon.style.display = "inline-block";
-  });
+  function toggleMenu(isOpen) {
+    navMenu.classList.toggle("is-visible", isOpen);
+    hamburger.style.display = isOpen ? "none" : "inline-block";
+    closeIcon.style.display = isOpen ? "inline-block" : "none";
+  }
 
-  closeIcon.addEventListener("click", () => {
-    navMenu.classList.remove("is-visible");
-    hamburger.style.display = "inline-block";
-    closeIcon.style.display = "none";
-  });
+  hamburger.addEventListener("click", () => toggleMenu(true));
+  closeIcon.addEventListener("click", () => toggleMenu(false));
 }

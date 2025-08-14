@@ -90,15 +90,15 @@ img {
 a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.25s ease-in-out, text-decoration 0.25s ease-in-out;
+  transition: color 0.1s ease-in-out, text-decoration 0.25s ease-in-out;
 }
 
-a:hover,
-a:focus {
+a:not(.button):hover,
+a:not(.button):focus {
   color: var(--color-primary);
   text-decoration: underline;
-  text-underline-offset: 3px; /* subtle spacing */
-  letter-spacing: 0.5px; /* optional slight emphasis */
+  text-underline-offset: 3px;
+  /* letter-spacing: 0.5px; optional */
 }
 
 .button {
@@ -116,9 +116,8 @@ a:focus {
 
 .button:hover,
 .button:focus {
-  background-color: hsl(204, 100%, 40%); /* slightly darker shade of primary */
+  background-color: hsl(204, 100%, 40%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: scale(1.03);
 }
 
 button:disabled,

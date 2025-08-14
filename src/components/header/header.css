@@ -54,3 +54,22 @@
 .header__menu-toggle--close {
   display: none;
 }
+
+@media (min-width: 768px) {
+  .header__menu-toggle {
+    display: none;
+  }
+  .header__nav {
+    position: static;
+    width: auto;
+    background-color: var(--color-white);
+    transform: none;
+    transition: none;
+  }
+  .header__nav-list {
+    flex-direction: row;
+  }
+  .header__nav-item:last-child {
+    margin-top: 0;
+  }
+}
