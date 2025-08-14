@@ -1,4 +1,4 @@
-import { initHeader } from "../components/header/header.js";
+import { initHeader } from "../components/shared/header/header";
 
 export function initCommon() {
   initHeader();
