@@ -133,19 +133,16 @@ export function initHeader() {
     }
   });
 
-  // Force menu to close on page load or when navigating back
-  window.addEventListener("pageshow", (event) => {
-    // Check if the page is being restored from the bfcache
-    if (event.persisted) {
-      const navMenu = document.querySelector(".header__nav");
-      const hamburger = document.querySelector(".header__menu-toggle--open");
-      const closeIcon = document.querySelector(".header__menu-toggle--close");
-
-      // Ensure elements exist before trying to modify them
-      if (navMenu && hamburger && closeIcon) {
-        navMenu.classList.remove("is-visible");
-        hamburger.style.display = "inline-block";
-        closeIcon.style.display = "none";
+  // Instantly snap menu closed if tab becomes visible again (avoids slow close animation)
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      if (!navMenu.classList.contains("is-visible")) {
+        navMenu.style.transition = "none";
+        navMenu.style.transform = ""; // reset transform state if you use it for menu
+        void navMenu.offsetHeight; // force reflow
+        setTimeout(() => {
+          navMenu.style.transition = "";
+        }, 50);
       }
     }
   });
