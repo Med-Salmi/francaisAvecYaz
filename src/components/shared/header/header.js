@@ -61,9 +61,7 @@ export function initHeader() {
   document.body.insertAdjacentHTML("afterbegin", headerHTML);
 }
 
-// Header manu functionality
-
-// headerMenu.js
+// Header Menu Functionality
 
 let navMenu, hamburger, closeIcon, navLinks;
 let resizeTimeout;
@@ -88,8 +86,7 @@ function closeMobileMenu(immediate = false) {
   closeIcon.style.display = "none";
 
   if (immediate) {
-    // Force reflow and restore transition
-    void navMenu.offsetHeight;
+    void navMenu.offsetHeight; // Force reflow
     setTimeout(() => (navMenu.style.transition = ""), 10);
   }
 }
@@ -100,19 +97,18 @@ function handleResize() {
   navMenu.style.transition = "none";
 
   if (window.innerWidth >= 768) {
-    // Desktop view: force menu closed
+    // Desktop: force menu closed and hide hamburger
     navMenu.classList.remove("is-visible");
     hamburger.style.display = "none";
     closeIcon.style.display = "none";
   } else {
-    // Mobile view: show hamburger if menu is closed
+    // Mobile: show hamburger if menu is closed
     if (!navMenu.classList.contains("is-visible")) {
       hamburger.style.display = "inline-block";
       closeIcon.style.display = "none";
     }
   }
 
-  // Re-enable transitions after resizing ends
   resizeTimeout = setTimeout(() => {
     navMenu.style.transition = "";
   }, 150);
@@ -134,12 +130,14 @@ function handleOutsideClick(event) {
   }
 }
 
+// Instantly snap menu closed when tab becomes visible to avoid slow closing animation
 function handleVisibilityChange() {
   if (document.visibilityState === "visible") {
+    // Menu fix
     if (!navMenu.classList.contains("is-visible")) {
       navMenu.style.transition = "none";
       navMenu.style.transform = "";
-      void navMenu.offsetHeight; // Force reflow
+      void navMenu.offsetHeight;
       setTimeout(() => (navMenu.style.transition = ""), 50);
     }
   }
