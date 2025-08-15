@@ -106,4 +106,47 @@ export function initHeader() {
   }
 
   window.addEventListener("resize", handleResize);
+
+  // Close menu when a link inside it is clicked
+  const navLinks = navMenu.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("is-visible");
+      hamburger.style.display = "inline-block";
+      closeIcon.style.display = "none";
+    });
+  });
+
+  // Close menu if user clicks outside
+  document.addEventListener("click", (event) => {
+    const isClickInsideNav = navMenu.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+
+    if (
+      navMenu.classList.contains("is-visible") &&
+      !isClickInsideNav &&
+      !isClickOnHamburger
+    ) {
+      navMenu.classList.remove("is-visible");
+      hamburger.style.display = "inline-block";
+      closeIcon.style.display = "none";
+    }
+  });
+
+  // Force menu to close on page load or when navigating back
+  window.addEventListener("pageshow", (event) => {
+    // Check if the page is being restored from the bfcache
+    if (event.persisted) {
+      const navMenu = document.querySelector(".header__nav");
+      const hamburger = document.querySelector(".header__menu-toggle--open");
+      const closeIcon = document.querySelector(".header__menu-toggle--close");
+
+      // Ensure elements exist before trying to modify them
+      if (navMenu && hamburger && closeIcon) {
+        navMenu.classList.remove("is-visible");
+        hamburger.style.display = "inline-block";
+        closeIcon.style.display = "none";
+      }
+    }
+  });
 }
