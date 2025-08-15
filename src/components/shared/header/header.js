@@ -59,91 +59,111 @@ export function initHeader() {
   `;
 
   document.body.insertAdjacentHTML("afterbegin", headerHTML);
+}
 
-  // Mobile menu logic
-  const navMenu = document.querySelector(".header__nav");
-  const hamburger = document.querySelector(".header__menu-toggle--open");
-  const closeIcon = document.querySelector(".header__menu-toggle--close");
+// Header manu functionality
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.add("is-visible");
-    hamburger.style.display = "none";
-    closeIcon.style.display = "inline-block";
-  });
+// headerMenu.js
 
-  closeIcon.addEventListener("click", () => {
+let navMenu, hamburger, closeIcon, navLinks;
+let resizeTimeout;
+
+// --- Helper Functions ---
+
+function openMobileMenu() {
+  if (window.innerWidth >= 768) return; // Only mobile
+
+  navMenu.classList.add("is-visible");
+  hamburger.style.display = "none";
+  closeIcon.style.display = "inline-block";
+}
+
+function closeMobileMenu(immediate = false) {
+  if (window.innerWidth >= 768) return; // Only mobile
+
+  if (immediate) navMenu.style.transition = "none";
+
+  navMenu.classList.remove("is-visible");
+  hamburger.style.display = "inline-block";
+  closeIcon.style.display = "none";
+
+  if (immediate) {
+    // Force reflow and restore transition
+    void navMenu.offsetHeight;
+    setTimeout(() => (navMenu.style.transition = ""), 10);
+  }
+}
+
+function handleResize() {
+  clearTimeout(resizeTimeout);
+
+  navMenu.style.transition = "none";
+
+  if (window.innerWidth >= 768) {
+    // Desktop view: force menu closed
     navMenu.classList.remove("is-visible");
-    hamburger.style.display = "inline-block";
+    hamburger.style.display = "none";
     closeIcon.style.display = "none";
-  });
-
-  // Reset menu on resize
-  let resizeTimeout;
-
-  function handleResize() {
-    clearTimeout(resizeTimeout);
-
-    // Disable transitions during resizing
-    navMenu.style.transition = "none";
-
-    if (window.innerWidth >= 768) {
-      // Desktop: reset state
-      navMenu.classList.remove("is-visible");
-      hamburger.style.display = "none";
+  } else {
+    // Mobile view: show hamburger if menu is closed
+    if (!navMenu.classList.contains("is-visible")) {
+      hamburger.style.display = "inline-block";
       closeIcon.style.display = "none";
-    } else {
-      // Mobile: ensure menu closed by default
-      if (!navMenu.classList.contains("is-visible")) {
-        hamburger.style.display = "inline-block";
-        closeIcon.style.display = "none";
-      }
     }
-
-    // Re-enable transitions after resize ends
-    resizeTimeout = setTimeout(() => {
-      navMenu.style.transition = "";
-    }, 150); // Wait 150ms after resizing stops
   }
 
+  // Re-enable transitions after resizing ends
+  resizeTimeout = setTimeout(() => {
+    navMenu.style.transition = "";
+  }, 150);
+}
+
+function handleLinkClick() {
+  if (window.innerWidth < 768) closeMobileMenu();
+}
+
+function handleOutsideClick(event) {
+  if (
+    window.innerWidth < 768 &&
+    navMenu.classList.contains("is-visible") &&
+    !navMenu.contains(event.target) &&
+    !hamburger.contains(event.target) &&
+    !closeIcon.contains(event.target)
+  ) {
+    closeMobileMenu();
+  }
+}
+
+function handleVisibilityChange() {
+  if (document.visibilityState === "visible") {
+    if (!navMenu.classList.contains("is-visible")) {
+      navMenu.style.transition = "none";
+      navMenu.style.transform = "";
+      void navMenu.offsetHeight; // Force reflow
+      setTimeout(() => (navMenu.style.transition = ""), 50);
+    }
+  }
+}
+
+// --- Initialization Function ---
+
+export function initHeaderMenu() {
+  navMenu = document.querySelector(".header__nav");
+  hamburger = document.querySelector(".header__menu-toggle--open");
+  closeIcon = document.querySelector(".header__menu-toggle--close");
+
+  if (!navMenu || !hamburger || !closeIcon) return;
+
+  navLinks = navMenu.querySelectorAll("a");
+
+  // Event bindings
+  hamburger.addEventListener("click", openMobileMenu);
+  closeIcon.addEventListener("click", () => closeMobileMenu());
+  navLinks.forEach((link) => link.addEventListener("click", handleLinkClick));
+  document.addEventListener("click", handleOutsideClick);
   window.addEventListener("resize", handleResize);
+  document.addEventListener("visibilitychange", handleVisibilityChange);
 
-  // Close menu when a link inside it is clicked
-  const navLinks = navMenu.querySelectorAll("a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("is-visible");
-      hamburger.style.display = "inline-block";
-      closeIcon.style.display = "none";
-    });
-  });
-
-  // Close menu if user clicks outside
-  document.addEventListener("click", (event) => {
-    const isClickInsideNav = navMenu.contains(event.target);
-    const isClickOnHamburger = hamburger.contains(event.target);
-
-    if (
-      navMenu.classList.contains("is-visible") &&
-      !isClickInsideNav &&
-      !isClickOnHamburger
-    ) {
-      navMenu.classList.remove("is-visible");
-      hamburger.style.display = "inline-block";
-      closeIcon.style.display = "none";
-    }
-  });
-
-  // Instantly snap menu closed if tab becomes visible again (avoids slow close animation)
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      if (!navMenu.classList.contains("is-visible")) {
-        navMenu.style.transition = "none";
-        navMenu.style.transform = ""; // reset transform state if you use it for menu
-        void navMenu.offsetHeight; // force reflow
-        setTimeout(() => {
-          navMenu.style.transition = "";
-        }, 50);
-      }
-    }
-  });
+  // Initial state
+  handleResize();
 }
