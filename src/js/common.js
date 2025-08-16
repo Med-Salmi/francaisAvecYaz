@@ -10,10 +10,10 @@ function activateButtonsOnTouch() {
     });
 
     button.addEventListener("touchend", () => {
-      // Use a brief timeout to allow the tap to register
-      setTimeout(() => {
+      // Use requestAnimationFrame for a more reliable, instant visual update
+      requestAnimationFrame(() => {
         button.classList.remove("is-active");
-      }, 100);
+      });
     });
   });
 }
@@ -21,5 +21,5 @@ function activateButtonsOnTouch() {
 export function initCommon() {
   initHeader();
   initHeaderMenu();
-  activateButtonsOnTouch();
+  document.addEventListener("DOMContentLoaded", activateButtonsOnTouch);
 }
