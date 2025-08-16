@@ -132,6 +132,12 @@ a:not(.button):focus {
   outline-offset: 3px;
 }
 
+.button.pressed {
+  background: hsl(204, 90%, 30%); /* active color */
+  transform: translateY(1px);
+  transition: background 0.05s, transform 0.05s; /* instant-ish effect */
+}
+
 ul,
 ol {
   list-style: none;
