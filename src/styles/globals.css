@@ -132,10 +132,10 @@ a:not(.button):focus {
   outline-offset: 3px;
 }
 
-.button.pressed {
-  background: hsl(204, 90%, 30%); /* active color */
+.button.is-active {
+  background: hsl(204, 100%, 25%);
   transform: translateY(1px);
-  transition: background 0.05s, transform 0.05s; /* instant-ish effect */
+  transition: background 0.05s, transform 0.05s;
 }
 
 ul,
