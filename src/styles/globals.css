@@ -103,45 +103,33 @@ a:not(.button):focus {
 .button {
   font-weight: var(--fw-semi-bold);
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   border: none;
   border-radius: var(--radius-md);
   padding: var(--space-12-16) var(--space-16-24);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out,
-    box-shadow 0.25s ease-in-out;
-  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background 0.25s, transform 0.1s;
 }
 
-/* Styles for when the button is active (tapped or clicked) */
+@media (hover: hover) {
+  .button:hover {
+    background: hsl(204, 100%, 40%);
+    box-shadow: 0 px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .button:active {
-  background-color: hsl(204, 100%, 35%);
+  background: hsl(204, 100%, 25%); /* darker and clearly visible */
   transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.05s, transform 0.05s;
 }
 
-/* Styles for keyboard navigation */
 .button:focus-visible {
   outline: 2px solid hsl(204, 100%, 50%);
   outline-offset: 3px;
-}
-
-/* Styles for when the button is disabled */
-button:disabled,
-.button:disabled {
-  background-color: var(--color-gray-light);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* Only apply hover effects on devices that support hover (e.g., desktops) */
-@media (hover: hover) {
-  .button:hover {
-    background-color: hsl(204, 100%, 40%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
 }
 
 ul,
