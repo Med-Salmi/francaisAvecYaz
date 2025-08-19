@@ -19,7 +19,7 @@ export function initFichesTeaser() {
       <!-- Card 1 -->
       <article class="fiche-card">
         <img
-          src="/public/fiche-teaser-preview.png"
+          src="/fiche-teaser-preview.png"
           alt="Pack Tronc Commun - fiches pédagogiques prêtes à l'emploi"
           class="fiche-card__image"
         />
@@ -43,7 +43,7 @@ export function initFichesTeaser() {
       <!-- Card 2 -->
       <article class="fiche-card">
         <img
-          src="/public/fiche-teaser-preview.png"
+          src="/fiche-teaser-preview.png"
           alt="Pack 1ère année Bac - fiches pédagogiques prêtes à l'emploi"
           class="fiche-card__image"
         />
@@ -66,7 +66,7 @@ export function initFichesTeaser() {
       <!-- Card 3 -->
       <article class="fiche-card">
         <img
-          src="/public/fiche-teaser-preview.png"
+          src="/fiche-teaser-preview.png"
           alt="Pack Tout en Un - fiches pédagogiques prêtes à l'emploi"
           class="fiche-card__image"
         />
