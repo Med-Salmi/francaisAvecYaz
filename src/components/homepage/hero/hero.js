@@ -2,8 +2,8 @@ import "./hero.css";
 
 export function initHero() {
   const heroHTML = `
-    <section class="hero content-width" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
-      <div class="hero__container">
+    <section class="hero" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
+      <div class="hero__container content-width">
         <h1 class="hero__title" id="hero-title">
           Des fiches prêtes à l'emploi pour vos cours de français
         </h1>
@@ -33,5 +33,5 @@ export function initHero() {
   `;
 
   const main = document.querySelector("#main-content");
-  main.insertAdjacentHTML("afterbegin", heroHTML);
+  main.insertAdjacentHTML("beforeend", heroHTML);
 }

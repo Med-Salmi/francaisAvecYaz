@@ -10,9 +10,10 @@
   --color-dark: #003049;
   --color-primary: #a9def9;
   --color-gray-medium: #555555;
-  --color-gray-light: #f4f4f4;
+  --color-section-background: #f4f4f4;
   --color-green-whatsapp: #25d366;
   --color-mobile-menu: #f8f9fa;
+  --color-hero-background: #f9f9f9;
 
   /* Font Family */
   --font-family-base: "Inter", sans-serif;
@@ -51,7 +52,7 @@
   /* border radius */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 12px;
 
   /* mobile menu toggle icon size */
   --menu-toggle-icon: 24px;
@@ -102,7 +103,7 @@ a:not(.button):focus {
 
 .button {
   font-weight: var(--fw-semi-bold);
-  color: var(--color-white);
+  color: var(--color-dark);
   background: var(--color-primary);
   border: none;
   border-radius: var(--radius-md);

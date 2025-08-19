@@ -43,6 +43,7 @@
 
 .header__cta {
   text-transform: uppercase;
+  color: var(--color-white);
 }
 
 .header__menu-toggle {
