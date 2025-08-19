@@ -7,7 +7,7 @@
 }
 
 .header__logo-image {
-  height: var(--logo-height);
+  width: var(--logo-width);
 }
 
 .header__nav {

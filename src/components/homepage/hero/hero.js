@@ -19,7 +19,7 @@ export function initHero() {
             Explorez nos fiches
           </a>
           <a 
-            href="https://wa.me/212658227705" 
+            href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20obtenir%20plus%20d%E2%80%99informations."
             class="button button--secondary hero__button" 
             target="_blank" 
             rel="noopener noreferrer" 
@@ -27,6 +27,7 @@ export function initHero() {
           >
             Contactez-nous
           </a>
+
         </div>
       </div>
     </section>

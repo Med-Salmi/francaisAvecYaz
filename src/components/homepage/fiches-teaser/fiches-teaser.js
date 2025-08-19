@@ -2,8 +2,8 @@ import "./fiches-teaser.css";
 
 export function initFichesTeaser() {
   const fichesTeaserHTML = `
-    <section class="fiches-teaser" aria-labelledby="fiches-teaser__headline">
-  <div class="fiches-teaser__container  content-width">
+   <section class="fiches-teaser" aria-labelledby="fiches-teaser__headline">
+  <div class="fiches-teaser__container content-width">
     <!-- Headline -->
     <h2 id="fiches-teaser__headline" class="fiches-teaser__headline">
       Fiches pédagogiques premium
@@ -48,10 +48,10 @@ export function initFichesTeaser() {
           class="fiche-card__image"
         />
         <div class="fiche-card__content">
-          <h3 class="fiche-card__title">Pack Tronc Commun</h3>
+          <h3 class="fiche-card__title">Pack 1ère année Bac</h3>
           <p class="fiche-card__description">
-            Fiches prêtes à l'emploi pour enseigner efficacement les notions
-            clés du programme Tronc Commun.
+            Fiches prêtes à l'emploi pour aborder clairement les notions
+            essentielles du programme de 1ère année Bac.
           </p>
           <a
             href="../../../../fiches.html"
@@ -71,10 +71,10 @@ export function initFichesTeaser() {
           class="fiche-card__image"
         />
         <div class="fiche-card__content">
-          <h3 class="fiche-card__title">Pack Tronc Commun</h3>
+          <h3 class="fiche-card__title">Pack tout-en-un</h3>
           <p class="fiche-card__description">
-            Fiches prêtes à l'emploi pour enseigner efficacement les notions
-            clés du programme Tronc Commun.
+            Fiches prêtes à l'emploi pour couvrir efficacement l’ensemble des
+            notions du Tronc Commun et de la 1ère année bac.
           </p>
           <a
             href="../../../../fiches.html"
@@ -88,7 +88,6 @@ export function initFichesTeaser() {
     </div>
   </div>
 </section>
-
   `;
 
   const main = document.querySelector("#main-content");
