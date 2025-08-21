@@ -1,0 +1,238 @@
+export function initFichesSection() {
+  const fichesSectionHTML = `
+    <section class="fiches-section" aria-labelledby="fiches-section__headline">
+  <div class="fiches-section__container content-width">
+    <!-- Headline -->
+    <h2 id="fiches-section__headline" class="fiches-section__headline">
+      Fiches pédagogiques
+    </h2>
+
+    <!-- Subheadline -->
+    <p class="fiches-section__subheadline">
+      Ressources premium pour enseignants
+    </p>
+
+    <!-- Intro Paragraph -->
+    <p class="fiches-section__intro">
+      Pensées pour répondre aux besoins réels des enseignants, nos fiches
+      pédagogiques vous permettent de préparer vos cours plus sereinement, tout
+      en garantissant qualité et efficacité. Voici pourquoi elles font la
+      différence :
+    </p>
+
+    <!-- Features list -->
+    <ul class="fiches-section__features">
+      <li class="fiches-section__feature">
+        Un gain de temps précieux : prêtes à l'emploi.
+      </li>
+      <li class="fiches-section__feature">
+        Entièrement conformes au programme officiel.
+      </li>
+      <li class="fiches-section__feature">
+        Téléchargeables en PDF, simples à utiliser.
+      </li>
+      <li class="fiches-section__feature">
+        Présentation claire, professionnelle et engageante.
+      </li>
+    </ul>
+
+    <!-- Cards wrapper -->
+    <div class="fiches-section__cards">
+      <!-- Card 1 -->
+      <article class="fiche-card">
+        <!-- Carousel Placeholder -->
+        <div
+          class="fiche-card__carousel"
+          aria-label="Aperçu du pack 1ère Année Bac"
+        >
+          <img
+            src="/tronc-commun-carousel/fiche-preview1.png"
+            alt="Aperçu 1"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/tronc-commun-carousel/fiche-preview2.png"
+            alt="Aperçu 2"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/tronc-commun-carousel/fiche-preview3.png"
+            alt="Aperçu 3"
+            class="fiche-card__carousel-image"
+          />
+        </div>
+
+        <!-- Card Title -->
+        <h3 class="fiche-card__title">Pack 1ère Année Bac</h3>
+
+        <!-- Card Bullet Points -->
+        <ul class="fiche-card__features">
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Grilles d’évaluation adaptables.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités orales et écrites variées.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités pratiques et interactives.
+          </li>
+        </ul>
+
+        <!-- Price -->
+        <p class="fiche-card__price">Prix : 69DH</p>
+
+        <!-- CTA Button -->
+        <a
+          href="https://wa.me/212658227705?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20fiches%20pédagogiques%20et%20je%20cherche%20plus%20d'informations."
+          class="fiche-card__button button button--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Commander Pack 1ère Année Bac sur WhatsApp"
+        >
+          Commandez sur WhatsApp
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="fiche-card">
+        <div
+          class="fiche-card__carousel"
+          aria-label="Aperçu du pack Tronc Commun"
+        >
+          <img
+            src="/1ere-bac-carousel/fiche-preview1.png"
+            alt="Aperçu 1"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/1ere-bac-carousel/fiche-preview2.png"
+            alt="Aperçu 2"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/1ere-bac-carousel/fiche-preview3.png"
+            alt="Aperçu 3"
+            class="fiche-card__carousel-image"
+          />
+        </div>
+
+        <h3 class="fiche-card__title">Pack Tronc Commun</h3>
+
+        <ul class="fiche-card__features">
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Grilles d’évaluation adaptables.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités orales et écrites variées.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités pratiques et interactives.
+          </li>
+        </ul>
+
+        <p class="fiche-card__price">Prix : 69DH</p>
+
+        <a
+          href="https://wa.me/212658227705?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20fiches%20pédagogiques et je cherche plus d'informations."
+          class="fiche-card__button button button--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Commander Pack Tronc Commun sur WhatsApp"
+        >
+          Commandez sur WhatsApp
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="fiche-card">
+        <div
+          class="fiche-card__carousel"
+          aria-label="Aperçu du pack Tout en Un"
+        >
+          <img
+            src="/tout-en-un-carousel/fiche-preview1.png"
+            alt="Aperçu 1"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/tout-en-un-carousel/fiche-preview2.png"
+            alt="Aperçu 2"
+            class="fiche-card__carousel-image"
+          />
+          <img
+            src="/tout-en-un-carousel/fiche-preview3.png"
+            alt="Aperçu 3"
+            class="fiche-card__carousel-image"
+          />
+        </div>
+
+        <h3 class="fiche-card__title">Pack Tout en Un</h3>
+
+        <ul class="fiche-card__features">
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Grilles d’évaluation adaptables.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités orales et écrites variées.
+          </li>
+          <li class="fiche-card__feature">
+            <i
+              class="fa-solid fa-check fiche-card__icon"
+              aria-hidden="true"
+            ></i>
+            Activités pratiques et interactives.
+          </li>
+        </ul>
+
+        <p class="fiche-card__price">Prix : 69DH</p>
+
+        <a
+          href="https://wa.me/212658227705?text=Bonjour,%20je%20suis%20intéressé%20par vos fiches pédagogiques et je cherche plus d'informations."
+          class="fiche-card__button button button--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Commander Pack Tout en Un sur WhatsApp"
+        >
+          Commandez sur WhatsApp
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+  `;
+
+  const main = document.querySelector("#main-content");
+  main.insertAdjacentHTML("beforeend", fichesSectionHTML);
+}
