@@ -1,0 +1,33 @@
+.faq {
+  background-color: var(--color-white);
+}
+
+.faq .container {
+  padding: var(--space-24) var(--space-16-32);
+}
+
+#faq-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semi-bold);
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: var(--space-12-16);
+}
+
+.accordion-header {
+  all: unset;
+  cursor: pointer;
+  font-weight: var(--fw-semi-bold);
+  margin-bottom: var(--space-8-12);
+}
+
+.accordion-content p {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  color: var(--color-gray-medium);
+}
+
+.accordion-arrow {
+  color: var(--color-primary);
+}
