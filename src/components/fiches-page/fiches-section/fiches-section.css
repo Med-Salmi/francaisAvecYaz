@@ -172,3 +172,21 @@
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
+
+@media (min-width: 768px) {
+  .fiches-section__cards .content-width {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-16-32);
+  }
+
+  .fiche-card {
+    flex: 0 0 calc(50% - var(--space-16-32));
+    margin-bottom: 0;
+  }
+
+  .fiche-card:nth-child(3) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
