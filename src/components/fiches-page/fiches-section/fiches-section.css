@@ -62,17 +62,15 @@
 }
 
 .fiches-section__cards .content-width {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16-32);
   padding: var(--space-24) var(--space-16-32);
 }
 
 .fiche-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  margin-bottom: var(--space-16-32);
-}
-
-.fiche-card:nth-child(3) {
-  margin-bottom: 0;
 }
 
 .fiche-card__content {
@@ -115,14 +113,23 @@
 
 /* Track holds all slides in a row */
 .fiche-card__track {
-  display: flex;
   transition: transform 300ms ease;
   will-change: transform;
 }
 
-.fiche-card__carousel-image {
+.fiche-card__track.is-initialized {
+  display: flex;
+}
+
+.fiche-card__carousel-image-link {
   width: 100%;
   flex: 0 0 100%;
+  display: block;
+}
+
+.fiche-card__carousel-image {
+  width: 100%;
+  max-height: 250px;
   display: block;
   object-fit: cover;
   cursor: zoom-in;
@@ -180,18 +187,20 @@
 
 @media (min-width: 768px) {
   .fiches-section__cards .content-width {
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: var(--space-16-32);
   }
 
   .fiche-card {
     flex: 0 0 calc(50% - var(--space-16-32));
-    margin-bottom: 0;
   }
 
   .fiche-card:nth-child(3) {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+  }
+
+  .fiche-card__carousel-image {
+    max-height: 350px;
   }
 }

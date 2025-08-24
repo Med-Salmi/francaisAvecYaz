@@ -4,6 +4,9 @@
 
 .faq .container {
   padding: var(--space-16-24) var(--space-16-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #faq-title {
