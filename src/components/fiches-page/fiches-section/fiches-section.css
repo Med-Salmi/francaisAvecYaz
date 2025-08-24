@@ -143,6 +143,7 @@
   cursor: pointer;
   backdrop-filter: blur(4px);
 }
+
 .fiche-card__control--prev {
   left: 8px;
 }
