@@ -5,7 +5,7 @@ import "photoswipe/style.css";
 // Fiches section
 export function initFichesSection() {
   const fichesSectionHTML = `
-   <section class="fiches-section" aria-labelledby="fiches-section__headline">
+    <section class="fiches-section" aria-labelledby="fiches-section__headline">
       <div class="fiches-section__container">
         <div class="fiches-section__header">
           <div class="content-width">
@@ -80,7 +80,10 @@ export function initFichesSection() {
   const main = document.querySelector("#main-content");
   main.insertAdjacentHTML("beforeend", fichesSectionHTML);
 
+  // Initialize all carousels
   initCarousels();
+
+  // Initialize PhotoSwipe for each carousel
   initPhotoSwipeLightbox();
 }
 
@@ -99,7 +102,7 @@ function generateFicheCard(
     (_, i) => `
     <a href="${imgPrefix}${
       i + 1
-    }.png" class="fiche-card__carousel-image-link" data-pswp-width="1200" data-pswp-height="1600" target="_blank" rel="noopener noreferrer">
+    }.png" class="fiche-card__carousel-image-link" data-pswp-width="800" data-pswp-height="1067" target="_blank" rel="noopener noreferrer">
       <img src="${imgPrefix}${i + 1}.png" alt="Aperçu ${
       i + 1
     }" class="fiche-card__carousel-image"/>
