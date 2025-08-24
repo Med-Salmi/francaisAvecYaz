@@ -1,4 +1,4 @@
-import "../../shared/header/header.css";
+import "./header.css";
 
 export function initHeader() {
   //Create header html

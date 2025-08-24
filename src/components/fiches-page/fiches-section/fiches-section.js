@@ -1,6 +1,6 @@
 import "./fiches-section.css";
 
-// Function to create and manage the image overlay
+// Reusable function to create and manage the image overlay
 function createImageOverlay(imgSrc, imgAlt) {
   const overlay = document.createElement("div");
   overlay.className = "image-preview-overlay";
@@ -155,8 +155,7 @@ export function initFichesSection() {
 
         <p class="fiche-card__price">Prix : 69DH</p>
 
-        <a
-          <a href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20du%20tronc%20commun."
+        <a href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20du%20tronc%20commun."
           class="fiche-card__button button button--primary"
           target="_blank"
           rel="noopener noreferrer"
@@ -225,8 +224,7 @@ export function initFichesSection() {
 
         <p class="fiche-card__price">Prix : 89DH</p>
 
-        <a
-          <a href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20de%201%C3%A8re%20ann%C3%A9e%20Bac."
+        <a href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20de%201%C3%A8re%20ann%C3%A9e%20Bac."
           class="fiche-card__button button button--primary"
           target="_blank"
           rel="noopener noreferrer"
@@ -294,7 +292,6 @@ export function initFichesSection() {
 
         <p class="fiche-card__price">Prix : 129DH</p>
 
-        <a
         <a href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20pack%20complet%20de%20fiches%20p%C3%A9dagogiques."
           class="fiche-card__button button button--primary"
           target="_blank"
@@ -334,9 +331,16 @@ function initCarousels() {
     const dotsWrap = root.querySelector(".fiche-card__dots");
 
     let index = 0;
-    let isDragging = false;
     let startX = 0;
     let deltaX = 0;
+    let startTarget = null;
+    let isClick = false;
+    let isDragging = false;
+    let activePointerId = null;
+
+    // Hint to the browser: vertical scrolling is allowed, JS will handle horizontal.
+    // This reduces the chance the browser steals the gesture when the element is near the top.
+    track.style.touchAction = "pan-y";
 
     // Build dots
     const dots = slides.map((_, i) => {
@@ -377,7 +381,6 @@ function initCarousels() {
     function next() {
       goTo(index + 1);
     }
-
     function prev() {
       goTo(index - 1);
     }
@@ -392,32 +395,99 @@ function initCarousels() {
       if (e.key === "ArrowLeft") prev();
     });
 
-    // Swipe handling
-    track.addEventListener("pointerdown", (e) => {
+    // Pointer handlers
+    function onPointerDown(e) {
+      // Only react to primary button/touch
+      if (e.button && e.button !== 0) return;
+
       isDragging = true;
+      isClick = true; // optimistic — assume tap until movement proves otherwise
       startX = e.clientX;
       deltaX = 0;
-      track.setPointerCapture(e.pointerId);
-    });
+      startTarget = e.target;
+      activePointerId = e.pointerId;
 
-    track.addEventListener("pointermove", (e) => {
+      try {
+        track.setPointerCapture(activePointerId);
+      } catch (err) {
+        // some environments may throw if capture isn't allowed — ignore
+        activePointerId = null;
+      }
+    }
+
+    function onPointerMove(e) {
       if (!isDragging) return;
+      // Ignore moves from other pointers
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+
       deltaX = e.clientX - startX;
-    });
+      if (Math.abs(deltaX) > 10) {
+        isClick = false;
+      }
+    }
 
-    track.addEventListener("pointerup", (e) => {
-      if (!isDragging) return;
+    function handlePointerUpOrCancel(e, wasCancelled = false) {
+      // Ignore pointer events that are not the active one
+      if (activePointerId != null && e && e.pointerId !== activePointerId)
+        return;
+
+      // release capture if we had one
+      if (activePointerId != null) {
+        try {
+          track.releasePointerCapture(activePointerId);
+        } catch (err) {
+          /* ignore */
+        }
+        activePointerId = null;
+      }
+
+      // If it looks like a tap/click (no significant movement) and not cancelled => open overlay
+      if (isClick && !wasCancelled) {
+        const isImageClick =
+          startTarget &&
+          startTarget.classList.contains("fiche-card__carousel-image");
+        const isButton =
+          startTarget &&
+          (startTarget.closest("button") || startTarget.closest("a"));
+
+        if (isImageClick && !isButton) {
+          const { overlay } = createImageOverlay(
+            startTarget.src,
+            startTarget.alt
+          );
+          document.body.appendChild(overlay);
+        }
+      } else {
+        // handle swipe
+        if (deltaX < -30) next();
+        else if (deltaX > 30) prev();
+      }
+
+      // reset state
       isDragging = false;
-      track.releasePointerCapture(e.pointerId);
-
-      // Only handle swipe movement
-      if (deltaX < -30) next();
-      else if (deltaX > 30) prev();
-
+      isClick = false;
+      deltaX = 0;
+      startTarget = null;
       render();
-    });
+    }
 
-    // Image click handler (always works)
+    // Attach pointer listeners
+    track.addEventListener("pointerdown", onPointerDown, { passive: true });
+    track.addEventListener("pointermove", onPointerMove, { passive: true });
+
+    // pointerup, pointercancel and lostpointercapture all treated to be robust
+    track.addEventListener("pointerup", (e) =>
+      handlePointerUpOrCancel(e, false)
+    );
+    track.addEventListener("pointercancel", (e) =>
+      handlePointerUpOrCancel(e, true)
+    );
+    track.addEventListener("lostpointercapture", (e) =>
+      handlePointerUpOrCancel(e, true)
+    );
+
+    // Click fallback: in case pointer events got swallowed or didn't occur,
+    // the native click event will still open overlay reliably.
     track.addEventListener("click", (e) => {
       if (
         e.target.classList.contains("fiche-card__carousel-image") &&
@@ -428,7 +498,6 @@ function initCarousels() {
       }
     });
 
-    root.tabIndex = 0;
     render();
   }
 }
