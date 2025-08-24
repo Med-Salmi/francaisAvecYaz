@@ -337,7 +337,6 @@ function initCarousels() {
     let isDragging = false;
     let startX = 0;
     let deltaX = 0;
-    let startTarget = null;
 
     // Build dots
     const dots = slides.map((_, i) => {
@@ -378,6 +377,7 @@ function initCarousels() {
     function next() {
       goTo(index + 1);
     }
+
     function prev() {
       goTo(index - 1);
     }
@@ -386,53 +386,38 @@ function initCarousels() {
     btnNext.addEventListener("click", next);
     btnPrev.addEventListener("click", prev);
 
-    // Keyboard
+    // Keyboard navigation
     root.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft") prev();
     });
 
-    // Updated pointer event logic for both swiping and tapping
+    // Swipe handling
     track.addEventListener("pointerdown", (e) => {
       isDragging = true;
       startX = e.clientX;
       deltaX = 0;
-      startTarget = e.target;
       track.setPointerCapture(e.pointerId);
     });
+
     track.addEventListener("pointermove", (e) => {
       if (!isDragging) return;
       deltaX = e.clientX - startX;
     });
+
     track.addEventListener("pointerup", (e) => {
       if (!isDragging) return;
       isDragging = false;
       track.releasePointerCapture(e.pointerId);
 
-      const isClick = Math.abs(deltaX) < 10;
-      const isImageClick =
-        startTarget &&
-        startTarget.classList.contains("fiche-card__carousel-image");
-      const isButton =
-        startTarget &&
-        (startTarget.closest("button") || startTarget.closest("a"));
-
-      if (isClick && isImageClick && !isButton) {
-        const { overlay } = createImageOverlay(
-          startTarget.src,
-          startTarget.alt
-        );
-        document.body.appendChild(overlay);
-        return;
-      }
-
+      // Only handle swipe movement
       if (deltaX < -30) next();
       else if (deltaX > 30) prev();
 
       render();
     });
 
-    // Fallback click listener 
+    // Image click handler (always works)
     track.addEventListener("click", (e) => {
       if (
         e.target.classList.contains("fiche-card__carousel-image") &&

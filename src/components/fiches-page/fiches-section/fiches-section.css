@@ -1,3 +1,8 @@
+.fiches-section__container {
+  position: relative;
+  z-index: 10;
+}
+
 .fiches-section__header {
   background-color: var(--color-white);
 }

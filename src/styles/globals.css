@@ -88,6 +88,10 @@ img {
   display: block;
 }
 
+p {
+  max-width: 60ch;
+}
+
 a {
   text-decoration: none;
   color: inherit;
