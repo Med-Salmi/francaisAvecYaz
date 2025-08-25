@@ -5,7 +5,7 @@ import "photoswipe/style.css";
 // Fiches section
 export function initFichesSection() {
   const fichesSectionHTML = `
-    <section class="fiches-section" aria-labelledby="fiches-section__headline">
+   <section class="fiches-section" aria-labelledby="fiches-section__headline">
       <div class="fiches-section__container">
         <div class="fiches-section__header">
           <div class="content-width">
@@ -158,8 +158,13 @@ function initCarousels() {
     const dotsWrap = root.querySelector(".fiche-card__dots");
 
     let index = 0;
+    let startX = 0;
+    let deltaX = 0;
+    let isDragging = false;
+    let activePointerId = null;
 
-    // Add this line to hide the initial flicker
+    track.style.touchAction = "pan-y";
+
     track.classList.add("is-initialized");
 
     // Build dots
@@ -214,6 +219,69 @@ function initCarousels() {
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft") prev();
     });
+
+    // Pointer handlers for swipe
+    function onPointerDown(e) {
+      if (e.button && e.button !== 0) return;
+      isDragging = true;
+      startX = e.clientX;
+      deltaX = 0;
+      activePointerId = e.pointerId;
+
+      try {
+        track.setPointerCapture(activePointerId);
+      } catch {
+        activePointerId = null;
+      }
+    }
+
+    function onPointerMove(e) {
+      if (!isDragging) return;
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+      deltaX = e.clientX - startX;
+    }
+
+    function handlePointerUpOrCancel(e, wasCancelled = false) {
+      if (activePointerId != null && e && e.pointerId !== activePointerId)
+        return;
+
+      if (activePointerId != null) {
+        try {
+          track.releasePointerCapture(activePointerId);
+        } catch {}
+        activePointerId = null;
+      }
+
+      const isClick = Math.abs(deltaX) < 10;
+
+      // Don't slide the carousel if a link (image) was clicked
+      if (isClick && e.target.closest("a.fiche-card__carousel-image-link")) {
+        return;
+      }
+
+      // Handle swipe (ignore click logic)
+      if (!wasCancelled) {
+        if (deltaX < -30) next();
+        else if (deltaX > 30) prev();
+      }
+
+      isDragging = false;
+      deltaX = 0;
+      render();
+    }
+
+    // Pointer listeners
+    track.addEventListener("pointerdown", onPointerDown, { passive: true });
+    track.addEventListener("pointermove", onPointerMove, { passive: true });
+    track.addEventListener("pointerup", (e) =>
+      handlePointerUpOrCancel(e, false)
+    );
+    track.addEventListener("pointercancel", (e) =>
+      handlePointerUpOrCancel(e, true)
+    );
+    track.addEventListener("lostpointercapture", (e) =>
+      handlePointerUpOrCancel(e, true)
+    );
 
     render();
   }
