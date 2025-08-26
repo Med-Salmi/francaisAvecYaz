@@ -90,6 +90,7 @@ img {
 
 p {
   max-width: 60ch;
+  text-align: justify;
 }
 
 a {
@@ -101,7 +102,6 @@ a {
 a:not(.button):hover,
 a:not(.button):focus {
   color: var(--color-primary);
-  text-decoration: underline;
   text-underline-offset: 3px;
 }
 
