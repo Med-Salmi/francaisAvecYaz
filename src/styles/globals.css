@@ -46,7 +46,7 @@
   --space-24: 1.5rem;
 
   /* Icon & Logo Sizes */
-  --logo-width: clamp(3.75rem, 3.182rem + 2.424vw, 5rem); /* 60 → 80px */
+  --logo-width: clamp(7.5rem, 4.659rem + 12.121vw, 13.75rem); /* 120 → 220px */
   --icon-size: clamp(1.5rem, 1.33rem + 0.727vw, 1.875rem); /* 32 → 42px */
 
   /* border radius */
