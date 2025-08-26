@@ -37,7 +37,7 @@ export function initFichesSection() {
               "tronc-commun-carousel",
               "/tronc-commun-carousel/fiche-preview",
               3,
-              69,
+              150,
               "Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20du%20tronc%20commun.",
               [
                 "Séquences complètes prêtes à l'usage.",
@@ -50,7 +50,7 @@ export function initFichesSection() {
               "1ere-bac-carousel",
               "/1ere-bac-carousel/fiche-preview",
               3,
-              89,
+              150,
               "Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20de%201%C3%A8re%20ann%C3%A9e%20Bac.",
               [
                 "Grilles d’évaluation adaptables.",
@@ -63,7 +63,7 @@ export function initFichesSection() {
               "tout-en-un-carousel",
               "/tout-en-un-carousel/fiche-preview",
               3,
-              129,
+              250,
               "Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20pack%20complet%20de%20fiches%20p%C3%A9dagogiques.",
               [
                 "Deux thématiques réunies.",
