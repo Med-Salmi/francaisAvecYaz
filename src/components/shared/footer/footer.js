@@ -18,7 +18,7 @@ export function initFooter() {
     <i class="fa-brands fa-instagram"></i>
   </a>
   <a 
-    href="https://www.facebook.com/yourusername" 
+    href="https://www.facebook.com/profile.php?id=61564744162514&locale=fr_FR" 
     target="_blank" 
     rel="noopener noreferrer" 
     aria-label="Facebook"
@@ -26,13 +26,21 @@ export function initFooter() {
     <i class="fa-brands fa-facebook"></i>
   </a>
   <a 
-    href="https://www.linkedin.com/in/yourusername" 
+    href="https://www.linkedin.com/in/yassine-zaghlamane-53a06223a" 
     target="_blank" 
     rel="noopener noreferrer" 
     aria-label="LinkedIn"
   >
     <i class="fa-brands fa-linkedin"></i>
   </a>
+  <a 
+  href="mailto:yzaghlamane@gmail.com" 
+  aria-label="Send email to Yassine ZAGHLAMANE" 
+  class="footer__social-link"
+>
+  <i class="fas fa-envelope"></i>
+</a>
+
 </div>
 
 

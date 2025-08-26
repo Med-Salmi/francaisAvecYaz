@@ -1,44 +1,39 @@
-.faq {
-  background-color: var(--color-white);
+.feedback {
+  background-color: var(--color-hero-background);
 }
 
-.faq .container {
+.feedback__container {
   padding: var(--space-16-24) var(--space-16-32);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#faq-title {
+.feedback__title {
   font-size: var(--fs-xl);
   font-weight: var(--fw-semi-bold);
-  line-height: 1.2;
   text-align: center;
   margin-top: 0;
   margin-bottom: var(--space-16-24);
 }
 
-.accordion-header {
-  all: unset;
-  cursor: pointer;
-  font-weight: var(--fw-semi-bold);
-  margin-bottom: var(--space-12-16);
-}
-
-.accordion-content {
+.feedback__text {
   font-size: var(--fs-md);
   font-weight: var(--fw-regular);
   color: var(--color-gray-medium);
-  margin-top: 0;
-  margin-bottom: var(--space-12-16);
+  text-align: center;
 }
 
-.accordion-content__item {
+.feedback__text a {
+  font-size: var(--fs-lg);
   font-weight: var(--fw-semi-bold);
   color: var(--color-dark);
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-.accordion-arrow {
+.feedback__text a:hover,
+.feedback__text a:focus {
   color: var(--color-primary);
-  margin-right: var(--space--8-12);
+  outline: none;
 }

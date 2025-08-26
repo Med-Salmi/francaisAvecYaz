@@ -81,6 +81,7 @@
   font-size: var(--fs-lg);
   font-weight: var(--fw-semi-bold);
   margin-bottom: var(--space-8-12);
+  text-align: center;
 }
 
 .fiche-card__feature {
