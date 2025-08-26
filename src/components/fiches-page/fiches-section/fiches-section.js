@@ -102,7 +102,7 @@ function generateFicheCard(
     (_, i) => `
     <a href="${imgPrefix}${
       i + 1
-    }.png" class="fiche-card__carousel-image-link" data-pswp-width="800" data-pswp-height="1067" target="_blank" rel="noopener noreferrer">
+    }.png" class="fiche-card__carousel-image-link" data-pswp-width="1035" data-pswp-height="685" target="_blank" rel="noopener noreferrer">
       <img src="${imgPrefix}${i + 1}.png" alt="Aperçu ${
       i + 1
     }" class="fiche-card__carousel-image"/>
