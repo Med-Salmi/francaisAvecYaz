@@ -63,6 +63,7 @@
 .fiche-card__button {
   display: inline-block;
   margin-bottom: var(--space-24);
+  width: fit-content; 
 }
 
 @media (min-width: 768px) {
