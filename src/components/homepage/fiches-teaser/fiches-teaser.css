@@ -34,6 +34,8 @@
 
 .fiche-card__content {
   padding: 0 var(--space-16-32);
+  display: flex;
+  flex-direction: column;
 }
 
 .fiche-card__image {
@@ -47,6 +49,7 @@
   font-size: var(--fs-lg);
   font-weight: var(--fw-semi-bold);
   margin-bottom: var(--space-8-12);
+  align-self: center;
 }
 
 .fiche-card__description {
