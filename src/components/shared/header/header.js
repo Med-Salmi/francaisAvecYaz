@@ -26,7 +26,7 @@ export function initHeader() {
             </li>
             <li class="header__nav-item">
               <a 
-                href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20obtenir%20plus%20d%E2%80%99informations."
+                href="https://wa.me/212687229846?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20obtenir%20plus%20d%E2%80%99informations."
                 class="header__cta button" 
                 target="_blank" 
                 rel="noopener noreferrer"

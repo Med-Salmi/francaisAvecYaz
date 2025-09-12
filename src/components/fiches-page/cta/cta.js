@@ -12,7 +12,7 @@ export function initCta() {
         </p>
         <a
           class="button button--primary cta__button"
-          href="https://wa.me/212658227705?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20commander."
+          href="https://wa.me/212687229846?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20commander."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Commander sur WhatsApp"

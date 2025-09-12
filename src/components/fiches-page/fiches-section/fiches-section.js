@@ -135,7 +135,7 @@ function generateFicheCard(
         <h3 class="fiche-card__title">${title}</h3>
         <ul class="fiche-card__features">${featuresHTML}</ul>
         <p class="fiche-card__price">Prix : ${price}DH</p>
-        <a href="https://wa.me/212658227705?text=${waMessage}" class="fiche-card__button button button--primary" target="_blank" rel="noopener noreferrer" aria-label="Commander ${title} sur WhatsApp">
+        <a href="https://wa.me/212687229846?text=${waMessage}" class="fiche-card__button button button--primary" target="_blank" rel="noopener noreferrer" aria-label="Commander ${title} sur WhatsApp">
           Commandez sur WhatsApp
         </a>
       </div>

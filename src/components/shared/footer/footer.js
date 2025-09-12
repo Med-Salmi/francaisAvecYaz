@@ -52,7 +52,7 @@ export function initFooter() {
         </div>
 
         <div class="footer-copy">
-        <p>© 2024 FrançaisAvecYaz, tous droits réservés.</p>
+        <p>© 2025 FrançaisAvecYaz, tous droits réservés.</p>
         </div>
     </div>
     </footer>
