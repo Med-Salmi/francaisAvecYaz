@@ -40,7 +40,14 @@ export function initFooter() {
 >
   <i class="fas fa-envelope"></i>
 </a>
-
+<a 
+    href="https://wa.me/212687229846?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20fiches%20p%C3%A9dagogiques%20et%20je%20souhaite%20obtenir%20plus%20d%E2%80%99informations."
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="Contactez-nous via WhatsApp"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 </div>
 
 
